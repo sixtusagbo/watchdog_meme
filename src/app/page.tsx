@@ -140,9 +140,6 @@ export default function Home() {
                 Buy on Pump.fun
                 <ExternalLink size={20} />
               </Button>
-              <Button variant="glass" size="lg" href="/gallery">
-                View Memes
-              </Button>
             </motion.div>
           </motion.div>
 
