@@ -213,7 +213,7 @@ export default function Home() {
           </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="glass-effect p-6 rounded-xl hover:bg-neon-purple/10 transition-all duration-300">
-              <div className="relative mb-4">
+              <div className="relative">
                 <Image
                   src="/images/watchdog/1.jpeg"
                   alt="Watchdog Meme 2"
@@ -222,17 +222,9 @@ export default function Home() {
                   className="rounded-lg w-full object-cover"
                 />
               </div>
-              <div className="space-y-2">
-                <p className="text-neon-yellow font-bold">
-                  Garri looking at you after money finish
-                </p>
-                <p className="text-gray-300 italic">
-                  "By 9 we go on Gen make e last"
-                </p>
-              </div>
             </div>
             <div className="glass-effect p-6 rounded-xl hover:bg-neon-purple/10 transition-all duration-300">
-              <div className="relative mb-4">
+              <div className="relative">
                 <Image
                   src="/images/watchdog/2.jpeg"
                   alt="Watchdog Meme 3"
@@ -240,15 +232,6 @@ export default function Home() {
                   height={300}
                   className="rounded-lg w-full object-cover"
                 />
-              </div>
-              <div className="space-y-2">
-                <p className="text-neon-yellow font-bold">
-                  Mosquito watching you sleep naked because of heat
-                </p>
-                <p className="text-gray-300 italic">
-                  Your landlord watching you carrying different babes when your
-                  rent go soon expire
-                </p>
               </div>
             </div>
           </div>
