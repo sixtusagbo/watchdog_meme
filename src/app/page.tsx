@@ -183,7 +183,7 @@ export default function Home() {
               href="https://twitter.com/watchdog_meme"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-effect p-6 rounded-xl hover:bg-neon-blue/20 transition-all duration-300 hover:animate-glow group">
+              className="glass-effect p-6 rounded-xl hover:bg-neon-blue/20 transition-all duration-300 hover:animate-glow group flex flex-col items-center">
               <Twitter
                 size={32}
                 className="text-neon-blue group-hover:scale-110 transition-transform"
@@ -194,7 +194,7 @@ export default function Home() {
               href="https://t.me/watchdog_meme"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-effect p-6 rounded-xl hover:bg-neon-green/20 transition-all duration-300 hover:animate-glow group">
+              className="glass-effect p-6 rounded-xl hover:bg-neon-green/20 transition-all duration-300 hover:animate-glow group flex flex-col items-center">
               <MessageCircle
                 size={32}
                 className="text-neon-green group-hover:scale-110 transition-transform"
