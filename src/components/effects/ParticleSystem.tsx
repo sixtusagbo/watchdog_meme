@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 interface Particle {
   x: number;
@@ -19,20 +19,20 @@ interface ParticleSystemProps {
   className?: string;
 }
 
-export default function ParticleSystem({ 
-  particleCount = 50, 
-  colors = ['#00D4FF', '#8B5CF6', '#F472B6', '#10B981'],
-  className = ''
+export default function ParticleSystem({
+  particleCount = 50,
+  colors = ["#00D4FF", "#8B5CF6", "#F472B6", "#10B981"],
+  className = "",
 }: ParticleSystemProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     // Set canvas size
@@ -42,7 +42,7 @@ export default function ParticleSystem({
     };
 
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener("resize", resizeCanvas);
 
     // Initialize particles
     const initParticles = () => {
@@ -56,7 +56,7 @@ export default function ParticleSystem({
           life: Math.random() * 100,
           maxLife: 100 + Math.random() * 100,
           color: colors[Math.floor(Math.random() * colors.length)],
-          size: Math.random() * 3 + 1
+          size: Math.random() * 3 + 1,
         });
       }
     };
@@ -75,9 +75,9 @@ export default function ParticleSystem({
 
         // Reset particle if it goes off screen or dies
         if (
-          particle.x < 0 || 
-          particle.x > canvas.width || 
-          particle.y < 0 || 
+          particle.x < 0 ||
+          particle.x > canvas.width ||
+          particle.y < 0 ||
           particle.y > canvas.height ||
           particle.life > particle.maxLife
         ) {
@@ -92,14 +92,14 @@ export default function ParticleSystem({
         }
 
         // Draw particle
-        const alpha = 1 - (particle.life / particle.maxLife);
+        const alpha = 1 - particle.life / particle.maxLife;
         ctx.save();
         ctx.globalAlpha = alpha * 0.6;
         ctx.fillStyle = particle.color;
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fill();
-        
+
         // Add glow effect
         ctx.shadowBlur = 10;
         ctx.shadowColor = particle.color;
@@ -134,7 +134,7 @@ export default function ParticleSystem({
     animate();
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener("resize", resizeCanvas);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
@@ -145,7 +145,7 @@ export default function ParticleSystem({
     <canvas
       ref={canvasRef}
       className={`fixed inset-0 pointer-events-none z-0 ${className}`}
-      style={{ mixBlendMode: 'screen' }}
+      style={{ mixBlendMode: "screen" }}
     />
   );
 }

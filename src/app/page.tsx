@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { Copy, ExternalLink, Twitter, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import Button from "@/components/ui/Button";
-import Card from "@/components/ui/Card";
 import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import NeonText from "@/components/ui/NeonText";
 import FloatingActionButton from "@/components/ui/FloatingActionButton";
