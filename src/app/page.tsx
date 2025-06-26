@@ -88,11 +88,8 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.5 }}
                 className="text-lg sm:text-xl lg:text-2xl text-gray-300 max-w-lg">
-                The meme that watches over your crypto portfolio.
-                <span className="text-neon-blue">
-                  {" "}
-                  Always vigilant, always watching.
-                </span>
+                Watching the world with unwavering eyes.
+                <span className="text-neon-blue"> Always vigilant.</span>
               </motion.p>
             </div>
 
