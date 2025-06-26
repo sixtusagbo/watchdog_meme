@@ -93,12 +93,8 @@ We welcome contributions from the community! Whether you're adding new memes, fi
 ### Contribution Ideas
 
 - 🚀 **Performance Optimizations**: Make the app even faster
-- 🎭 **New Effects**: Add more visual effects and animations
-- 🔧 **Developer Experience**: Improve tooling and documentation
 - 🐛 **Bug Fixes**: Help us squash bugs
-- 📚 **Documentation**: Improve README, add tutorials
 - 🌐 **Accessibility**: Make the app more accessible
-- 🔒 **Security**: Enhance security features
 
 ### Development Guidelines
 
