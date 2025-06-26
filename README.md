@@ -132,4 +132,4 @@ Have questions or suggestions? Feel free to:
 
 ---
 
-**Stay vigilant, keep watching! 🐕‍🦺**
+**Stay vigilant, keep watching! 👀**
