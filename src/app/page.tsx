@@ -98,10 +98,12 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.7 }}
-              className="glass-effect p-4 rounded-lg space-y-2">
-              <p className="text-sm text-gray-400">Contract Address:</p>
-              <div className="flex items-center gap-2">
-                <code className="text-neon-green font-mono text-sm break-all">
+              className="glass-effect p-3 sm:p-4 rounded-lg space-y-2">
+              <p className="text-xs sm:text-sm text-gray-400">
+                Contract Address:
+              </p>
+              <div className="flex items-center gap-1 sm:gap-2">
+                <code className="text-neon-green font-mono text-xs sm:text-sm break-all">
                   {contractAddress}
                 </code>
                 <button
