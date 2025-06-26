@@ -148,7 +148,7 @@ export default function Home() {
             <div className="relative">
               <div className="absolute inset-0 bg-neon-blue/30 rounded-full blur-2xl animate-pulse-slow"></div>
               <Image
-                src="/dog-images/dog-main.jpeg"
+                src="/images/watchdog/main.jpeg"
                 alt="Watchdog Meme"
                 width={500}
                 height={500}
@@ -207,7 +207,7 @@ export default function Home() {
             <div className="glass-effect p-6 rounded-xl hover:bg-neon-purple/10 transition-all duration-300">
               <div className="relative mb-4">
                 <Image
-                  src="/dog-images/1.jpeg"
+                  src="/images/watchdog/1.jpeg"
                   alt="Watchdog Meme 1"
                   width={400}
                   height={300}
@@ -226,7 +226,7 @@ export default function Home() {
             <div className="glass-effect p-6 rounded-xl hover:bg-neon-purple/10 transition-all duration-300">
               <div className="relative mb-4">
                 <Image
-                  src="/dog-images/2.jpeg"
+                  src="/images/watchdog/2.jpeg"
                   alt="Watchdog Meme 2"
                   width={400}
                   height={300}
