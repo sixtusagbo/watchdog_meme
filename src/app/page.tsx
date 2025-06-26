@@ -5,6 +5,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Copy, ExternalLink, Twitter, MessageCircle } from "lucide-react";
 import { useState } from "react";
+import Button from "@/components/ui/Button";
+import Card from "@/components/ui/Card";
+import AnimatedBackground from "@/components/ui/AnimatedBackground";
+import NeonText from "@/components/ui/NeonText";
+import FloatingActionButton from "@/components/ui/FloatingActionButton";
 
 export default function Home() {
   const [copied, setCopied] = useState(false);
@@ -22,13 +27,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-crypto-dark cyber-grid relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-neon-blue/20 rounded-full blur-xl animate-pulse-slow"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-neon-purple/20 rounded-full blur-xl animate-bounce-slow"></div>
-        <div className="absolute bottom-20 left-1/4 w-40 h-40 bg-neon-pink/20 rounded-full blur-xl animate-float"></div>
-      </div>
+    <div className="min-h-screen bg-crypto-dark relative overflow-hidden">
+      {/* Animated background */}
+      <AnimatedBackground variant="cyber" />
 
       {/* Navigation */}
       <nav className="relative z-10 p-6">
@@ -36,9 +37,10 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-2xl font-bold neon-text text-neon-blue">
-            WATCHDOG
+            transition={{ duration: 0.8 }}>
+            <NeonText color="blue" size="2xl">
+              WATCHDOG
+            </NeonText>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -123,19 +125,18 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.9 }}
               className="flex flex-wrap gap-4">
-              <a
+              <Button
+                variant="gradient"
+                size="lg"
                 href="https://pump.fun/coin/7z7rjKhwZh7TkCPSpiJqC95AVFaMkbLAkKBbYiJQpump"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="gradient-border px-8 py-4 rounded-lg font-bold text-lg hover:scale-105 transition-transform duration-300 flex items-center gap-2 relative z-10">
-                <span className="relative z-10">Buy on Pump.fun</span>
-                <ExternalLink size={20} className="relative z-10" />
-              </a>
-              <Link
-                href="/gallery"
-                className="glass-effect px-8 py-4 rounded-lg font-bold text-lg hover:bg-neon-purple/20 transition-all duration-300 hover:animate-glow">
+                rel="noopener noreferrer">
+                Buy on Pump.fun
+                <ExternalLink size={20} />
+              </Button>
+              <Button variant="glass" size="lg" href="/gallery">
                 View Memes
-              </Link>
+              </Button>
             </motion.div>
           </motion.div>
 
@@ -273,6 +274,9 @@ export default function Home() {
           </p>
         </div>
       </footer>
+
+      {/* Floating Action Button */}
+      <FloatingActionButton contractAddress={contractAddress} />
     </div>
   );
 }
