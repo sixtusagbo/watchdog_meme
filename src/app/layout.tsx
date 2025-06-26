@@ -17,8 +17,7 @@ export const metadata: Metadata = {
     default: "Watchdog Meme - The Ultimate Web3 Meme Platform",
     template: "%s | Watchdog Meme",
   },
-  description:
-    "The ultimate destination for Watchdog memes with cutting-edge web3 design, dynamic galleries, and cyberpunk aesthetics. Stay vigilant, stay memeing!",
+  description: "The ultimate destination for Watchdog memes!",
   keywords: [
     "watchdog",
     "meme",
@@ -45,8 +44,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Watchdog Meme - The Ultimate Web3 Meme Platform",
-    description:
-      "The ultimate destination for Watchdog memes with cutting-edge web3 design, dynamic galleries, and cyberpunk aesthetics. Stay vigilant, stay memeing!",
+    description: "The ultimate destination for Watchdog memes!",
     url: "https://thewatchdog.xyz",
     siteName: "Watchdog Meme",
     images: [
@@ -63,8 +61,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Watchdog Meme - The Ultimate Web3 Meme Platform",
-    description:
-      "The ultimate destination for Watchdog memes with cutting-edge web3 design, dynamic galleries, and cyberpunk aesthetics. Stay vigilant, stay memeing!",
+    description: "The ultimate destination for Watchdog memes!",
     images: ["/images/watchdog/1.jpeg"],
     creator: "@watchdog_meme",
   },
@@ -98,8 +95,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Watchdog Meme",
-    description:
-      "The ultimate destination for Watchdog memes with cutting-edge web3 design, dynamic galleries, and cyberpunk aesthetics. Stay vigilant, stay memeing!",
+    description: "The ultimate destination for Watchdog memes!",
     url: "https://thewatchdog.xyz",
     image: "https://thewatchdog.xyz/images/watchdog/1.jpeg",
     author: {
