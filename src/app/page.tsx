@@ -259,7 +259,7 @@ export default function Home() {
       <footer className="relative z-10 mt-20 border-t border-neon-blue/20 py-8">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <p className="text-gray-400">
-            © 2024 The Watchdog Meme. Always watching, always memeing.
+            © 2024 The Watchdog Meme | Always watching 👀
           </p>
         </div>
       </footer>
