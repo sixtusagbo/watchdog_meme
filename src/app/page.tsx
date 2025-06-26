@@ -253,16 +253,6 @@ export default function Home() {
           <p className="text-gray-400">
             © 2024 The Watchdog Meme. Always watching, always memeing.
           </p>
-          <p className="text-sm text-gray-500 mt-2">
-            Visit us at{" "}
-            <a
-              href="https://thewatchdog.xyz"
-              className="text-neon-blue hover:text-neon-purple transition-colors"
-              target="_blank"
-              rel="noopener noreferrer">
-              thewatchdog.xyz
-            </a>
-          </p>
         </div>
       </footer>
 
