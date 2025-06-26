@@ -3,81 +3,44 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowLeft, Download, Share2 } from "lucide-react";
-import { useState } from "react";
+import { ArrowLeft, Download, Share2, RefreshCw } from "lucide-react";
+import { useState, useEffect } from "react";
 
-const memeData = [
-  {
-    id: 1,
-    src: "/images/watchdog/1.jpeg",
-    alt: "Watchdog Meme 1",
-  },
-  {
-    id: 2,
-    src: "/images/watchdog/2.jpeg",
-    alt: "Watchdog Meme 2",
-  },
-  {
-    id: 3,
-    src: "/images/watchdog/3.jpeg",
-    alt: "Watchdog Meme 3",
-  },
-  {
-    id: 4,
-    src: "/images/watchdog/4.jpeg",
-    alt: "Watchdog Meme 4",
-  },
-  {
-    id: 5,
-    src: "/images/watchdog/5.jpeg",
-    alt: "Watchdog Meme 5",
-  },
-  {
-    id: 6,
-    src: "/images/watchdog/6.jpeg",
-    alt: "Watchdog Meme 6",
-  },
-  {
-    id: 7,
-    src: "/images/watchdog/7.jpeg",
-    alt: "Watchdog Meme 7",
-  },
-  {
-    id: 8,
-    src: "/images/watchdog/8.jpeg",
-    alt: "Watchdog Meme 8",
-  },
-  {
-    id: 9,
-    src: "/images/watchdog/9.jpeg",
-    alt: "Watchdog Meme 9",
-  },
-  {
-    id: 10,
-    src: "/images/watchdog/10.jpeg",
-    alt: "Watchdog Meme 10",
-  },
-  {
-    id: 11,
-    src: "/images/watchdog/11.jpeg",
-    alt: "Watchdog Meme 11",
-  },
-  {
-    id: 12,
-    src: "/images/watchdog/12.jpeg",
-    alt: "Watchdog Meme 12",
-  },
-  {
-    id: 13,
-    src: "/images/watchdog/13.jpeg",
-    alt: "Watchdog Meme 13",
-  },
-];
+interface MemeData {
+  id: number;
+  src: string;
+  alt: string;
+  filename: string;
+}
 
 export default function Gallery() {
-  const [selectedMeme, setSelectedMeme] = useState<(typeof memeData)[0] | null>(
-    null
-  );
+  const [memeData, setMemeData] = useState<MemeData[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [selectedMeme, setSelectedMeme] = useState<MemeData | null>(null);
+
+  // Fetch memes from API
+  const fetchMemes = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const response = await fetch("/api/memes");
+      if (!response.ok) {
+        throw new Error("Failed to fetch memes");
+      }
+      const data = await response.json();
+      setMemeData(data.memes);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to load memes");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Load memes on component mount
+  useEffect(() => {
+    fetchMemes();
+  }, []);
 
   const downloadImage = async (src: string, filename: string) => {
     try {
@@ -96,7 +59,7 @@ export default function Gallery() {
     }
   };
 
-  const shareImage = async (meme: (typeof memeData)[0]) => {
+  const shareImage = async (meme: MemeData) => {
     if (navigator.share) {
       try {
         await navigator.share({
@@ -157,58 +120,108 @@ export default function Gallery() {
           </p>
         </motion.div>
 
+        {/* Loading State */}
+        {loading && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-12">
+            <RefreshCw
+              size={48}
+              className="animate-spin mx-auto mb-4 text-neon-blue"
+            />
+            <p className="text-xl text-gray-300">Loading memes...</p>
+          </motion.div>
+        )}
+
+        {/* Error State */}
+        {error && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-12">
+            <div className="glass-effect p-8 rounded-xl max-w-md mx-auto">
+              <p className="text-xl text-red-400 mb-4">⚠️ {error}</p>
+              <button
+                onClick={fetchMemes}
+                className="px-6 py-3 bg-neon-blue/20 hover:bg-neon-blue/30 rounded-lg transition-colors">
+                Try Again
+              </button>
+            </div>
+          </motion.div>
+        )}
+
         {/* Meme Grid */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {memeData.map((meme, index) => (
-            <motion.div
-              key={meme.id}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="glass-effect rounded-xl overflow-hidden hover:bg-neon-blue/10 transition-all duration-300 group cursor-pointer"
-              onClick={() => setSelectedMeme(meme)}>
-              <div className="relative overflow-hidden">
-                <Image
-                  src={meme.src}
-                  alt={meme.alt}
-                  width={400}
-                  height={400}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="flex gap-2">
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        downloadImage(
-                          meme.src,
-                          `watchdog-meme-${meme.id}.jpeg`
-                        );
-                      }}
-                      className="p-2 bg-neon-blue/80 rounded-lg hover:bg-neon-blue transition-colors"
-                      title="Download">
-                      <Download size={16} />
-                    </button>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        shareImage(meme);
-                      }}
-                      className="p-2 bg-neon-purple/80 rounded-lg hover:bg-neon-purple transition-colors"
-                      title="Share">
-                      <Share2 size={16} />
-                    </button>
+        {!loading && !error && memeData.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {memeData.map((meme, index) => (
+              <motion.div
+                key={meme.id}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="glass-effect rounded-xl overflow-hidden hover:bg-neon-blue/10 transition-all duration-300 group cursor-pointer"
+                onClick={() => setSelectedMeme(meme)}>
+                <div className="relative overflow-hidden">
+                  <Image
+                    src={meme.src}
+                    alt={meme.alt}
+                    width={400}
+                    height={400}
+                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="flex gap-2">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          downloadImage(meme.src, meme.filename);
+                        }}
+                        className="p-2 bg-neon-blue/80 rounded-lg hover:bg-neon-blue transition-colors"
+                        title="Download">
+                        <Download size={16} />
+                      </button>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          shareImage(meme);
+                        }}
+                        className="p-2 bg-neon-purple/80 rounded-lg hover:bg-neon-purple transition-colors"
+                        title="Share">
+                        <Share2 size={16} />
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+
+        {/* Empty State */}
+        {!loading && !error && memeData.length === 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-12">
+            <div className="glass-effect p-8 rounded-xl max-w-md mx-auto">
+              <p className="text-xl text-gray-300 mb-4">No memes found</p>
+              <p className="text-gray-400 mb-4">
+                Add some images to the public/images/watchdog directory
+              </p>
+              <button
+                onClick={fetchMemes}
+                className="px-6 py-3 bg-neon-blue/20 hover:bg-neon-blue/30 rounded-lg transition-colors">
+                Refresh
+              </button>
+            </div>
+          </motion.div>
+        )}
       </div>
 
       {/* Modal for selected meme */}
@@ -246,10 +259,7 @@ export default function Gallery() {
               <div className="flex gap-4 justify-center">
                 <button
                   onClick={() =>
-                    downloadImage(
-                      selectedMeme.src,
-                      `watchdog-meme-${selectedMeme.id}.jpeg`
-                    )
+                    downloadImage(selectedMeme.src, selectedMeme.filename)
                   }
                   className="gradient-border px-6 py-3 rounded-lg font-bold flex items-center gap-2 relative">
                   <span className="relative z-10">Download</span>
