@@ -63,20 +63,20 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <main className="relative z-10 max-w-7xl mx-auto px-6 py-12">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left side - Text content */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="space-y-8">
-            <div className="space-y-4">
+            className="space-y-6 sm:space-y-8">
+            <div className="space-y-3 sm:space-y-4">
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.3 }}
-                className="text-6xl lg:text-8xl font-black neon-text text-transparent bg-clip-text bg-neon-gradient animate-gradient">
+                className="text-4xl sm:text-6xl lg:text-8xl font-black neon-text text-transparent bg-clip-text bg-neon-gradient animate-gradient">
                 <GlitchText intensity="medium" trigger="auto">
                   THE
                   <br />
@@ -87,7 +87,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.5 }}
-                className="text-xl lg:text-2xl text-gray-300 max-w-lg">
+                className="text-lg sm:text-xl lg:text-2xl text-gray-300 max-w-lg">
                 The meme that watches over your crypto portfolio.
                 <span className="text-neon-blue">
                   {" "}
