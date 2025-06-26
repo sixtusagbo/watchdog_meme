@@ -99,7 +99,7 @@ export default function Gallery() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-2xl font-bold neon-text text-neon-pink">
-            MEME GALLERY
+            <span className="hidden sm:inline">MEME</span> GALLERY
           </motion.div>
         </div>
       </nav>
