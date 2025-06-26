@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Copy, ExternalLink, Twitter, MessageCircle } from "lucide-react";
+import { Copy, ExternalLink, Twitter, MessageCircle, Star } from "lucide-react";
 import { useState } from "react";
 import Button from "@/components/ui/Button";
 import AnimatedBackground from "@/components/ui/AnimatedBackground";
@@ -196,6 +196,17 @@ export default function Home() {
                 className="text-neon-green group-hover:scale-110 transition-transform"
               />
               <p className="mt-2 text-sm">Telegram</p>
+            </a>
+            <a
+              href="https://github.com/sixtusagbo/watchdog_meme"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-effect p-6 rounded-xl hover:bg-neon-yellow/20 transition-all duration-300 hover:animate-glow group flex flex-col items-center">
+              <Star
+                size={32}
+                className="text-neon-yellow group-hover:scale-110 transition-transform"
+              />
+              <p className="mt-2 text-sm">GitHub</p>
             </a>
           </div>
         </motion.div>
