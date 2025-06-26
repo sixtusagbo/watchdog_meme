@@ -1,0 +1,26 @@
+{
+  "name": "Watchdog Meme - The Ultimate Web3 Meme Platform",
+  "short_name": "Watchdog Meme",
+  "description": "The ultimate destination for Watchdog memes with cutting-edge web3 design, dynamic galleries, and cyberpunk aesthetics. Stay vigilant, stay memeing!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0f23",
+  "theme_color": "#00D4FF",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["entertainment", "social", "lifestyle"],
+  "lang": "en",
+  "dir": "ltr"
+}

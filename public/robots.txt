@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://thewatchdog.xyz/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Allow all image files
+Allow: /images/
+
+# Allow API routes for dynamic content
+Allow: /api/memes
