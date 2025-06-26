@@ -2,6 +2,23 @@
 
 A cutting-edge web3 meme platform built with Next.js, featuring dynamic galleries, stunning animations, and a cyberpunk aesthetic. The ultimate destination for Watchdog memes with a focus on community and vigilance.
 
+## 📋 Table of Contents
+
+- [✨ Features](#-features)
+- [🚀 Tech Stack](#-tech-stack)
+- [🛠️ Getting Started](#️-getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Adding Memes](#adding-memes)
+- [🎨 Project Structure](#-project-structure)
+- [🤝 Contributing](#-contributing)
+  - [How to Contribute](#how-to-contribute)
+  - [Contribution Ideas](#contribution-ideas)
+  - [Development Guidelines](#development-guidelines)
+- [📝 License](#-license)
+- [🌟 Show Your Support](#-show-your-support)
+- [📞 Contact](#-contact)
+
 ## ✨ Features
 
 - **Dynamic Meme Gallery**: Automatically displays all memes from the `public/images/watchdog` directory
