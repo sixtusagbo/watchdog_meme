@@ -1,4 +1,4 @@
-# 🐕 Watchdog Meme
+# 👀 Watchdog Meme
 
 A cutting-edge web3 meme platform built with Next.js, featuring dynamic galleries, stunning animations, and a cyberpunk aesthetic. The ultimate destination for Watchdog memes with a focus on community and vigilance.
 
