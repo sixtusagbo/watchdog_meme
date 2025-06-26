@@ -10,6 +10,9 @@ import Card from "@/components/ui/Card";
 import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import NeonText from "@/components/ui/NeonText";
 import FloatingActionButton from "@/components/ui/FloatingActionButton";
+import ParticleSystem from "@/components/effects/ParticleSystem";
+import GlitchText from "@/components/effects/GlitchText";
+import HologramCard from "@/components/effects/HologramCard";
 
 export default function Home() {
   const [copied, setCopied] = useState(false);
@@ -28,6 +31,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-crypto-dark relative overflow-hidden">
+      {/* Particle System */}
+      <ParticleSystem particleCount={30} />
+
       {/* Animated background */}
       <AnimatedBackground variant="cyber" />
 
@@ -71,9 +77,11 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.3 }}
                 className="text-6xl lg:text-8xl font-black neon-text text-transparent bg-clip-text bg-neon-gradient animate-gradient">
-                THE
-                <br />
-                WATCHDOG
+                <GlitchText intensity="medium" trigger="auto">
+                  THE
+                  <br />
+                  WATCHDOG
+                </GlitchText>
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
@@ -146,17 +154,19 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
             className="flex justify-center">
-            <div className="relative">
-              <div className="absolute inset-0 bg-neon-blue/30 rounded-full blur-2xl animate-pulse-slow"></div>
-              <Image
-                src="/images/watchdog/main.jpeg"
-                alt="Watchdog Meme"
-                width={500}
-                height={500}
-                className="relative z-10 rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500 animate-float"
-                priority
-              />
-            </div>
+            <HologramCard className="relative" intensity={0.3}>
+              <div className="relative">
+                <div className="absolute inset-0 bg-neon-blue/30 rounded-full blur-2xl animate-pulse-slow"></div>
+                <Image
+                  src="/images/watchdog/1.jpeg"
+                  alt="Watchdog Meme"
+                  width={500}
+                  height={500}
+                  className="relative z-10 rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500 animate-float"
+                  priority
+                />
+              </div>
+            </HologramCard>
           </motion.div>
         </div>
 
@@ -209,7 +219,7 @@ export default function Home() {
               <div className="relative mb-4">
                 <Image
                   src="/images/watchdog/1.jpeg"
-                  alt="Watchdog Meme 1"
+                  alt="Watchdog Meme 2"
                   width={400}
                   height={300}
                   className="rounded-lg w-full object-cover"
@@ -228,7 +238,7 @@ export default function Home() {
               <div className="relative mb-4">
                 <Image
                   src="/images/watchdog/2.jpeg"
-                  alt="Watchdog Meme 2"
+                  alt="Watchdog Meme 3"
                   width={400}
                   height={300}
                   className="rounded-lg w-full object-cover"
