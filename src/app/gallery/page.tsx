@@ -10,93 +10,66 @@ const memeData = [
   {
     id: 1,
     src: "/images/watchdog/1.jpeg",
-    title: "The Original Watchdog",
-    caption: "Always watching, always vigilant",
     alt: "Watchdog Meme 1",
   },
   {
     id: 2,
     src: "/images/watchdog/2.jpeg",
-    title: "Garri looking at you after money finish",
-    caption: '"By 9 we go on Gen make e last"',
     alt: "Watchdog Meme 2",
   },
   {
     id: 3,
     src: "/images/watchdog/3.jpeg",
-    title: "Mosquito watching you sleep naked because of heat",
-    caption:
-      "Your landlord watching you carrying different babes when your rent go soon expire",
     alt: "Watchdog Meme 3",
   },
   {
     id: 4,
     src: "/images/watchdog/4.jpeg",
-    title: "When you check your portfolio",
-    caption: "And it's still red",
     alt: "Watchdog Meme 4",
   },
   {
     id: 5,
     src: "/images/watchdog/5.jpeg",
-    title: "Me watching my friends buy the dip",
-    caption: "While I'm already all in",
     alt: "Watchdog Meme 5",
   },
   {
     id: 6,
     src: "/images/watchdog/6.jpeg",
-    title: "When someone says crypto is dead",
-    caption: "But you're still hodling",
     alt: "Watchdog Meme 6",
   },
   {
     id: 7,
     src: "/images/watchdog/7.jpeg",
-    title: "Watching the charts at 3AM",
-    caption: "Like it's going to change anything",
     alt: "Watchdog Meme 7",
   },
   {
     id: 8,
     src: "/images/watchdog/8.jpeg",
-    title: "When you finally take profits",
-    caption: "And the price pumps 10x the next day",
     alt: "Watchdog Meme 8",
   },
   {
     id: 9,
     src: "/images/watchdog/9.jpeg",
-    title: "Me explaining crypto to my parents",
-    caption: "For the 100th time",
     alt: "Watchdog Meme 9",
   },
   {
     id: 10,
     src: "/images/watchdog/10.jpeg",
-    title: "When you see a new meme coin",
-    caption: "And you know you're about to FOMO",
     alt: "Watchdog Meme 10",
   },
   {
     id: 11,
     src: "/images/watchdog/11.jpeg",
-    title: "Watching other people's gains",
-    caption: "While your portfolio bleeds",
     alt: "Watchdog Meme 11",
   },
   {
     id: 12,
     src: "/images/watchdog/12.jpeg",
-    title: "When someone asks about your investment strategy",
-    caption: "Buy high, sell low, repeat",
     alt: "Watchdog Meme 12",
   },
   {
     id: 13,
     src: "/images/watchdog/13.jpeg",
-    title: "Me after buying another meme coin",
-    caption: "This time it's different",
     alt: "Watchdog Meme 13",
   },
 ];
@@ -127,8 +100,8 @@ export default function Gallery() {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: meme.title,
-          text: meme.caption,
+          title: `Watchdog Meme #${meme.id}`,
+          text: "Check out this Watchdog meme from the complete collection!",
           url: window.location.href,
         });
       } catch (error) {
@@ -233,14 +206,6 @@ export default function Gallery() {
                   </div>
                 </div>
               </div>
-              <div className="p-4">
-                <h3 className="font-bold text-neon-yellow mb-2 line-clamp-2">
-                  {meme.title}
-                </h3>
-                <p className="text-gray-300 text-sm italic line-clamp-2">
-                  {meme.caption}
-                </p>
-              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -275,13 +240,10 @@ export default function Gallery() {
               </button>
             </div>
             <div className="p-6">
-              <h3 className="text-2xl font-bold text-neon-yellow mb-2">
-                {selectedMeme.title}
+              <h3 className="text-2xl font-bold text-neon-yellow mb-4 text-center">
+                Watchdog Meme #{selectedMeme.id}
               </h3>
-              <p className="text-gray-300 italic mb-4">
-                {selectedMeme.caption}
-              </p>
-              <div className="flex gap-4">
+              <div className="flex gap-4 justify-center">
                 <button
                   onClick={() =>
                     downloadImage(
